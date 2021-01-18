@@ -1,0 +1,19 @@
+<script>
+    const host = "https://http-challenge.whitehatcoaches.org.uk/"
+    const path = "/apprentices/743c191c"
+    const payload = {
+        name: "Yana Volnova"
+    }
+    fetch(host + path, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: 'guests=Sergey,%20Arthur,%20Vera'
+    })
+    .then(res => res.text())
+    .then(msg => {
+        console.log(msg)
+    })
+    .catch(console.error)
+</script>

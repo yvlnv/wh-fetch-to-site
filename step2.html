@@ -1,0 +1,20 @@
+<script>
+    const host = "https://http-challenge.whitehatcoaches.org.uk/"
+    const path = "/apprentices"
+    const payload = {
+        name: "Yana Volnova"
+    }
+    fetch(host + path, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    })
+    .then(res => res.text())
+    .then(msg => {
+        const [yourId] = msg.match(/(?<=\/)[a-zA-Z0-9]+(?=')/)
+        console.log(yourId, msg)
+    })
+    .catch(console.error)
+</script>
